@@ -31,14 +31,15 @@
 	}
 	.typewriter-small h5 {
 		overflow: hidden; /* Ensures the content is not revealed until the animation */
-		border-right: .15em solid white; /* The typwriter cursor */
+		/* The typwriter cursor */
+		/* border-right: .15em solid white;  */
 		white-space: nowrap; /* Keeps the content on a single line */
 		margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 		letter-spacing: .01em; /* Adjust as needed */
 		text-align: center;
 		animation: 
 		typing 3.5s steps(40, end),
-		blink-caret .75s step-end infinite;
+		/* blink-caret .75s step-end infinite; */
 	}
 	/* The typing effect */
 	@keyframes typing {
