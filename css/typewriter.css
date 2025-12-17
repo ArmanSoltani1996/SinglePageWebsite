@@ -21,8 +21,8 @@
 	}
 	/* The typewriter cursor effect */
 	@keyframes blink-caret {
-	  	from, to { border-color: transparent }
-	  	50% { border-color: white }
+	  	from, to { border-color: white  }
+	  	50% { border-color: transparent }
 	}
 }
 @media screen and (max-width: 601px) {
