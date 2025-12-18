@@ -1,7 +1,7 @@
 
 .card {
   position: relative;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   /* width: 75vw; */
   width: 20em;
