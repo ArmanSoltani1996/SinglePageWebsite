@@ -3,8 +3,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* width: 75vw; */
-  width: 20em;
+  width: 75vw;
   max-width: 350px;
   border-radius: 24px;
   margin-bottom: 10px;
