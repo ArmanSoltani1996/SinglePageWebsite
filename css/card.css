@@ -1,11 +1,11 @@
 
 .card {
   position: relative;
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  width: 75vw;
+  /* width: 75vw; */
+  width: 20em;
   max-width: 350px;
-  background: var(--card);
   border-radius: 24px;
   margin-bottom: 10px;
 }
