@@ -1,23 +1,23 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
-  font-family: "Euclid Circular A", Poppins;
+  /* font-family: "Euclid Circular A", Poppins;
   color: #f9f9f9;
   background-image: url("bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 body::after {
-  content: "";
+  /* content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
+  background: linear-gradient(rgb(0 0 0 / 100%), rgb(0 0 0 / 0%)); */
 }
 
 button {
@@ -46,7 +46,7 @@ button {
 }
 
 body.open .burger {
-  background-image: url("close.svg");
+  /* background-image: url("close.svg"); */
 }
 
 .menu {
