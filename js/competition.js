@@ -2,98 +2,128 @@
 
 /* =========================================================
    داده‌های مسابقات — این بخش را برای تورنمنت خودتان ویرایش کنید
+   =========================================================
+
+   نکته مهم: جدول گروه‌ها دیگر دستی نیست.
+   شما فقط باید:
+     ۱) اسم تیم‌های هر گروه را در GROUPS وارد کنید (یک‌بار، در ابتدای کار)
+     ۲) نتیجه هر بازی را در FIXTURES وارد کنید (status: "played" + score)
+   جدول (تعداد بازی، برد، باخت، مساوی، گل‌زده، گل‌خورده، تفاضل، امتیاز)
+   به‌طور کامل و خودکار از روی نتایج بازی‌ها محاسبه می‌شود.
    ========================================================= */
 
-// هر گروه: نام گروه + لیست تیم‌ها
-// برای هر تیم فقط برد(w)، مساوی(d)، باخت(l)، گل‌زده(gf)، گل‌خورده(ga) را وارد کنید؛
-// تعداد بازی، تفاضل گل و امتیاز به‌صورت خودکار محاسبه می‌شود.
+// هر گروه فقط شامل شناسه (id)، عنوان نمایشی (label) و اسم تیم‌هاست.
+// اسم تیم‌ها باید دقیقاً همان چیزی باشد که در FIXTURES (home/away) استفاده می‌کنید.
 const GROUPS = [
   {
     id: "g1",
     label: "گروه ۱",
-    teams: [
-      { name: "سیمان فارس نو", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
-      { name: "آرتا تجارت", w: 1, d: 0, l: 0, gf: 2, ga: 1 },
-      { name: "نظام مهندسی", w: 0, d: 0, l: 1, gf: 1, ga: 2 },
-      { name: "صنایع شیمیایی فارس", w: 0, d: 0, l: 0, gf: 0, ga: 0 }
-    ]
+    teams: ["سیمان فارس نو","آرتا تجارت","نظام مهندسی","صنایع شیمیایی فارس"]
   },
   {
     id: "g2",
     label: "گروه ۲",
-    teams: [
-      { name: "رامک", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
-      { name: "پگاه فارس", w: 1, d: 0, l: 0, gf: 4, ga: 1 },
-      { name: "پارس الکل اقلید", w: 0, d: 0, l: 2, gf: 8, ga: 1 },
-      { name: "زنجیره سالیذ", w: 1, d: 0, l: 0, gf: 4, ga: 0 }
-    ]
+    teams: ["رامک","پگاه فارس","پارس الکل اقلید","زنجیره سالیذ"]
   },
   {
     id: "g3",
     label: "گروه ۳",
-    teams: [
-      { name: "یاسین پلاست", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
-      { name: "پتروشیمی شیراز", w: 0, d: 0, l: 1, gf: 2, ga: 3 },
-      { name: "فولاد غدیر نی ریز", w: 1, d: 0, l: 0, gf: 3, ga: 2 },
-      { name: "گاز اتان", w: 0, d: 0, l: 30, gf: 0, ga: 0 }
-    ]
+    teams: ["یاسین پلاست","پتروشیمی شیراز","فولاد غدیر نی ریز","گاز اتان"]
   },
   {
     id: "g4",
     label: "گروه ۴",
-    teams: [
-      { name: "شهرداری شیراز", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
-      { name: "شام شام", w: 1, d: 0, l: 0, gf: 8, ga: 1 },
-      { name: "فراسان", w: 0, d: 0, l: 1, gf: 1, ga: 8 }
-    ]
+    teams: ["شهرداری شیراز","شام شام","فراسان"]
   }
 ];
 
-// برنامه مسابقات: هر بازی به یک گروه اشاره می‌کند.
-// برای بازی‌های برگزار شده status را "played" و score را پر کنید.
-// برای بازی‌های پیش‌رو status را "upcoming" بگذارید و date/time را وارد کنید.
+// برنامه مسابقات — تنها جایی که باید نتایج را وارد کنید.
+//
+// برای یک بازی که هنوز برگزار نشده:
+//   { group: "g1", home: "تیم A1", away: "تیم A3", status: "upcoming", date: "۱۴۰۵/۰۱/۱۷", time: "۱۷:۰۰" }
+//
+// همین که بازی تمام شد، فقط این دو مقدار را تغییر بدهید — همین! جدول خودش آپدیت می‌شود:
+//   status: "upcoming"  →   status: "played"
+//   و یک خط score اضافه کنید، مثلاً:   score: "2 - 1"
+// (عدد اول "score" = گل تیم home، عدد دوم = گل تیم away، یعنی «گل home - گل away»)
 const FIXTURES = [
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "upcoming", date: "آینده" },
-  { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "پگاه فارس", away: "زنجیره سالیذ", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز اتان", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نی ریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۱/۱۲", time: "۱۹:۰۰" }, //
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۲", home: "پگاه فارس", away: "زنجیره سالیذ", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز اتان", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نی ریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۶/۲۴", time: "۱۴:۱۵" }, //
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "upcoming", date: "**", time: "**" },
   //{ group: "گروه ۴", home: "فراسان", away: "تیم D4", status: "played", score: "1 - 0", date: "۱۴۰۵/۰۱/۱۳", time: "۱۹:۰۰" },
 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "آینده" },
-  { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "رامک", away: "زنجیره سالیذ", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۱/۱۸", time: "۱۹:۰۰" },//
-  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز اتان", status: "upcoming", date: "آینده" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۲", home: "رامک", away: "زنجیره سالیذ", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۳:۰۰" },//
+  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز اتان", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "**" },
   //{ group: "گروه ۴", home: "شام شام", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۰", time: "۱۹:۰۰" },
 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
-  { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "پارس الکل اقلید", away: "زنجیره سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
-  { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "فولاد غدیر نی ریز", away: "گاز اتان", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۱:۰۰" },//
+  { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۲", home: "پارس الکل اقلید", away: "زنجیره سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۶/۲۴", time: "۱۵:۱۵" },//
+  { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "upcoming", date: "**", time: "**" },
+  { group: "گروه ۳", home: "فولاد غدیر نی ریز", away: "گاز اتان", status: "upcoming", date: "**", time: "**" },
   //{ group: "گروه ۴", home: "شهرداری شیراز", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۷", time: "۱۷:۰۰" },
-  { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۱/۲۷", time: "۱۹:۰۰" }//
+  { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۲:۰۰" }//
 ];
+//۰۱۲۳۴۵۶۷۸۹
+/* =========================================================
+   محاسبه خودکار جدول از روی نتایج بازی‌های "played"
+   ========================================================= */
+function parseScore(score) {
+  // "3 - 1" یا "3-1" هر دو پشتیبانی می‌شود
+  const parts = String(score).split("-").map(s => parseInt(s.trim(), 10));
+  if (parts.length !== 2 || parts.some(n => Number.isNaN(n))) return null;
+  return { home: parts[0], away: parts[1] };
+}
+
+function computeStandings(group) {
+  // شروع هر تیم از صفر
+  const table = {};
+  group.teams.forEach(name => {
+    table[name] = { name, played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0 };
+  });
+
+  FIXTURES
+    .filter(f => f.group === group.id && f.status === "played")
+    .forEach(f => {
+      const goals = parseScore(f.score);
+      const home = table[f.home];
+      const away = table[f.away];
+      if (!goals || !home || !away) {
+        console.warn("بازی نامعتبر یا تیم ناشناس در FIXTURES:", f);
+        return;
+      }
+
+      home.played++; away.played++;
+      home.gf += goals.home; home.ga += goals.away;
+      away.gf += goals.away; away.ga += goals.home;
+
+      if (goals.home > goals.away) { home.w++; away.l++; }
+      else if (goals.home < goals.away) { away.w++; home.l++; }
+      else { home.d++; away.d++; }
+    });
+
+  return Object.values(table).map(t => ({
+    ...t,
+    gd: t.gf - t.ga,
+    pts: t.w * 3 + t.d
+  }));
+}
 
 /* =========================================================
    رندر جدول گروه‌بندی
    ========================================================= */
-function computeRow(team) {
-  const played = team.w + team.d + team.l;
-  const gd = team.gf - team.ga;
-  const pts = team.w * 3 + team.d;
-  return { ...team, played, gd, pts };
-}
-
 function renderGroupTable(group) {
-  const rows = group.teams
-    .map(computeRow)
+  const rows = computeStandings(group)
     .sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf);
 
   const tbody = rows.map((t, i) => `
@@ -131,7 +161,7 @@ function renderGroupTable(group) {
         <tbody>${tbody}</tbody>
       </table>
     </div>
-    <p class="table-legend"><span class="legend-dot"></span> دو تیم برتر صعود می‌کنند</p>
+    <p class="table-legend"><span class="legend-dot"></span> دو تیم برتر صعود می‌کنند · جدول به‌صورت خودکار از روی نتایج بازی‌ها محاسبه شده است</p>
   `;
 }
 
@@ -166,11 +196,16 @@ function initGroupTabs() {
 /* =========================================================
    رندر برنامه مسابقات (اسکرول‌پذیر)
    ========================================================= */
+function groupLabel(id) {
+  const g = GROUPS.find(g => g.id === id);
+  return g ? g.label : id;
+}
+
 function renderFixtureRow(f) {
   const isPlayed = f.status === "played";
   return `
     <li class="fixture-row ${isPlayed ? "is-played" : "is-upcoming"}">
-      <span class="fixture-group">${f.group}</span>
+      <span class="fixture-group">${groupLabel(f.group)}</span>
       <span class="fixture-teams">
         <span class="fixture-team">${f.home}</span>
         <span class="fixture-mid">${isPlayed ? f.score : "vs"}</span>
@@ -209,6 +244,10 @@ function initFixtures() {
   render("all");
 }
 
+/* =========================================================
+   شروع برنامه — همه‌چیز از FIXTURES رندر می‌شود، پس با تغییر
+   یک نتیجه در بالا، هم جدول و هم لیست بازی‌ها خودکار به‌روز است.
+   ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   initGroupTabs();
   initFixtures();
