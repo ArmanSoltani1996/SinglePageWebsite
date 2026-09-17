@@ -53,32 +53,32 @@ const GROUPS = [
 // برای بازی‌های برگزار شده status را "played" و score را پر کنید.
 // برای بازی‌های پیش‌رو status را "upcoming" بگذارید و date/time را وارد کنید.
 const FIXTURES = [
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "played", score: "3 - 1", date: "۱۴۰۵/۰۱/۱۰", time: "۱۷:۰۰" },
-  { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "played", score: "2 - 2", date: "۱۴۰۵/۰۱/۱۰", time: "۱۹:۰۰" },
-  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "played", score: "2 - 0", date: "۱۴۰۵/۰۱/۱۱", time: "۱۷:۰۰" },
-  { group: "گروه ۲", home: "پگاه فارس", away: "سالیذ", status: "played", score: "1 - 1", date: "۱۴۰۵/۰۱/۱۱", time: "۱۹:۰۰" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز اتان", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۱/۱۲", time: "۱۷:۰۰" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نیریز", status: "played", score: "2 - 2", date: "۱۴۰۵/۰۱/۱۲", time: "۱۹:۰۰" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "played", score: "3 - 0", date: "۱۴۰۵/۰۱/۱۳", time: "۱۷:۰۰" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "پگاه فارس", away: "سالیذ", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز اتان", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نیریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۱/۱۲", time: "۱۹:۰۰" }, //
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "فراسان", away: "تیم D4", status: "played", score: "1 - 0", date: "۱۴۰۵/۰۱/۱۳", time: "۱۹:۰۰" },
 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "۱۴۰۵/۰۱/۱۷", time: "۱۷:۰۰" },
-  { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "۱۴۰۵/۰۱/۱۷", time: "۱۹:۰۰" },
-  { group: "گروه ۲", home: "رامک", away: "سالیذ", status: "upcoming", date: "۱۴۰۵/۰۱/۱۸", time: "۱۷:۰۰" },
-  { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "upcoming", date: "۱۴۰۵/۰۱/۱۸", time: "۱۹:۰۰" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نیریز", status: "upcoming", date: "۱۴۰۵/۰۱/۱۹", time: "۱۷:۰۰" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز اتان", status: "upcoming", date: "۱۴۰۵/۰۱/۱۹", time: "۱۹:۰۰" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "۱۴۰۵/۰۱/۲۰", time: "۱۷:۰۰" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "رامک", away: "سالیذ", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۱/۱۸", time: "۱۹:۰۰" },//
+  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نیریز", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز اتان", status: "upcoming", date: "آینده" },
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "شام شام", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۰", time: "۱۹:۰۰" },
 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "۱۴۰۵/۰۱/۲۴", time: "۱۷:۰۰" },
-  { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "upcoming", date: "۱۴۰۵/۰۱/۲۴", time: "۱۹:۰۰" },
-  { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "۱۴۰۵/۰۱/۲۵", time: "۱۷:۰۰" },
-  { group: "گروه ۲", home: "پارس الکل اقلید", away: "سالیذ", status: "upcoming", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "upcoming", date: "۱۴۰۵/۰۱/۲۶", time: "۱۷:۰۰" },
-  { group: "گروه ۳", home: "فولاد غدیر نیریز", away: "گاز اتان", status: "upcoming", date: "۱۴۰۵/۰۱/۲۶", time: "۱۹:۰۰" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
+  { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
+  { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "پارس الکل اقلید", away: "سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
+  { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "فولاد غدیر نیریز", away: "گاز اتان", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "شهرداری شیراز", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۷", time: "۱۷:۰۰" },
-  { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "upcoming", date: "۱۴۰۵/۰۱/۲۷", time: "۱۹:۰۰" }
+  { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۱/۲۷", time: "۱۹:۰۰" }//
 ];
 
 /* =========================================================
