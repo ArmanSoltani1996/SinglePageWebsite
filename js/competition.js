@@ -25,7 +25,7 @@ const GROUPS = [
       { name: "رامک", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
       { name: "پگاه فارس", w: 1, d: 0, l: 0, gf: 4, ga: 1 },
       { name: "پارس الکل اقلید", w: 0, d: 0, l: 2, gf: 8, ga: 1 },
-      { name: "سالیذ", w: 1, d: 0, l: 0, gf: 4, ga: 0 }
+      { name: "زنجیره سالیذ", w: 1, d: 0, l: 0, gf: 4, ga: 0 }
     ]
   },
   {
@@ -34,7 +34,7 @@ const GROUPS = [
     teams: [
       { name: "یاسین پلاست", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
       { name: "پتروشیمی شیراز", w: 0, d: 0, l: 1, gf: 2, ga: 3 },
-      { name: "فولاد غدیر نیریز", w: 1, d: 0, l: 0, gf: 3, ga: 2 },
+      { name: "فولاد غدیر نی ریز", w: 1, d: 0, l: 0, gf: 3, ga: 2 },
       { name: "گاز اتان", w: 0, d: 0, l: 30, gf: 0, ga: 0 }
     ]
   },
@@ -56,17 +56,17 @@ const FIXTURES = [
   { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "upcoming", date: "آینده" },
   { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
   { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "پگاه فارس", away: "سالیذ", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "پگاه فارس", away: "زنجیره سالیذ", status: "upcoming", date: "آینده" },
   { group: "گروه ۳", home: "یاسین پلاست", away: "گاز اتان", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نیریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۱/۱۲", time: "۱۹:۰۰" }, //
+  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نی ریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۱/۱۲", time: "۱۹:۰۰" }, //
   { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "فراسان", away: "تیم D4", status: "played", score: "1 - 0", date: "۱۴۰۵/۰۱/۱۳", time: "۱۹:۰۰" },
 
   { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "آینده" },
   { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "رامک", away: "سالیذ", status: "upcoming", date: "آینده" },
+  { group: "گروه ۲", home: "رامک", away: "زنجیره سالیذ", status: "upcoming", date: "آینده" },
   { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۱/۱۸", time: "۱۹:۰۰" },//
-  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نیریز", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "upcoming", date: "آینده" },
   { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز اتان", status: "upcoming", date: "آینده" },
   { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "شام شام", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۰", time: "۱۹:۰۰" },
@@ -74,9 +74,9 @@ const FIXTURES = [
   { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "آینده" },
   { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
   { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "آینده" },
-  { group: "گروه ۲", home: "پارس الکل اقلید", away: "سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
+  { group: "گروه ۲", home: "پارس الکل اقلید", away: "زنجیره سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۱/۲۵", time: "۱۹:۰۰" },//
   { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "upcoming", date: "آینده" },
-  { group: "گروه ۳", home: "فولاد غدیر نیریز", away: "گاز اتان", status: "upcoming", date: "آینده" },
+  { group: "گروه ۳", home: "فولاد غدیر نی ریز", away: "گاز اتان", status: "upcoming", date: "آینده" },
   //{ group: "گروه ۴", home: "شهرداری شیراز", away: "تیم D4", status: "upcoming", date: "۱۴۰۵/۰۱/۲۷", time: "۱۷:۰۰" },
   { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۱/۲۷", time: "۱۹:۰۰" }//
 ];
