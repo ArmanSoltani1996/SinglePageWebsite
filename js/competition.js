@@ -22,10 +22,10 @@ const GROUPS = [
     id: "g2",
     label: "گروه ۲",
     teams: [
-      { name: "تیم B1", w: 2, d: 2, l: 0, gf: 7, ga: 3 },
-      { name: "تیم B2", w: 2, d: 1, l: 1, gf: 5, ga: 4 },
-      { name: "تیم B3", w: 1, d: 1, l: 2, gf: 4, ga: 5 },
-      { name: "تیم B4", w: 0, d: 2, l: 2, gf: 3, ga: 7 }
+      { name: "رامک", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
+      { name: "پگاه فارس", w: 1, d: 0, l: 0, gf: 4, ga: 1 },
+      { name: "پارس الکل اقلید", w: 0, d: 0, l: 2, gf: 8, ga: 1 },
+      { name: "سالیذ", w: 1, d: 0, l: 0, gf: 4, ga: 0 }
     ]
   },
   {
