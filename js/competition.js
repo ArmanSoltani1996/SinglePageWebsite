@@ -93,7 +93,7 @@ function computeStandings(group) {
   });
 
   FIXTURES
-    .filter(f => f.group === group.id && f.status === "played")
+    .filter(f => f.group === group.label && f.status === "played")
     .forEach(f => {
       const goals = parseScore(f.score);
       const home = table[f.home];
