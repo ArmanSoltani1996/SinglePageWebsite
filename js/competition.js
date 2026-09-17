@@ -32,20 +32,19 @@ const GROUPS = [
     id: "g3",
     label: "گروه ۳",
     teams: [
-      { name: "تیم C1", w: 3, d: 0, l: 1, gf: 9, ga: 5 },
-      { name: "تیم C2", w: 2, d: 1, l: 1, gf: 6, ga: 5 },
-      { name: "تیم C3", w: 1, d: 2, l: 1, gf: 5, ga: 5 },
-      { name: "تیم C4", w: 0, d: 1, l: 3, gf: 3, ga: 8 }
+      { name: "یاسین پلاست", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
+      { name: "پتروشیمی شیراز", w: 0, d: 0, l: 1, gf: 2, ga: 3 },
+      { name: "فولاد غدیر نیریز", w: 1, d: 0, l: 0, gf: 3, ga: 2 },
+      { name: "گاز اتان", w: 0, d: 0, l: 30, gf: 0, ga: 0 }
     ]
   },
   {
     id: "g4",
     label: "گروه ۴",
     teams: [
-      { name: "تیم D1", w: 2, d: 2, l: 0, gf: 6, ga: 2 },
-      { name: "تیم D2", w: 2, d: 0, l: 2, gf: 5, ga: 5 },
-      { name: "تیم D3", w: 1, d: 2, l: 1, gf: 4, ga: 4 },
-      { name: "تیم D4", w: 0, d: 2, l: 2, gf: 2, ga: 6 }
+      { name: "شهرداری شیراز", w: 0, d: 0, l: 0, gf: 0, ga: 0 },
+      { name: "شام شام", w: 1, d: 0, l: 0, gf: 8, ga: 1 },
+      { name: "فراسان", w: 0, d: 0, l: 1, gf: 1, ga: 8 }
     ]
   }
 ];
