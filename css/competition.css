@@ -174,8 +174,8 @@ body.comp-page{
   color:var(--text);
 }
 .fixture-team{ flex:1; text-align:center; }
-.fixture-row.is-upcoming .fixture-team:first-child{ text-align:end; }
-.fixture-row.is-upcoming .fixture-team:last-child{ text-align:start; }
+/*.fixture-row.is-upcoming .fixture-team:first-child{ text-align:end; }*/
+/*.fixture-row.is-upcoming .fixture-team:last-child{ text-align:start; } */
 .fixture-mid{
   font-family:var(--font-mono); font-size:.85rem; font-weight:600;
   color:var(--copper-bright);
