@@ -55,9 +55,9 @@ const FIXTURES = [
   { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۲:۰۰" },//
   { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۳:۰۰" },//
    
-  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز استان", status: "upcoming", date: "1405/06/28", time: "12:30" },
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "upcoming", date: "1405/06/28", time: "13:30" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "upcoming", date: "1405/06/28", time: "14:30" }, 
+  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز استان", status: "played", score: "0 - 4", date: "1405/06/28", time: "12:30" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "played", score: "1-6", date: "1405/06/28", time: "13:30" },
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "played", score:"3-1", date: "1405/06/28", time: "14:30" }, 
    
   { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "1405/07/01", time: "11:00" },
   { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "1405/07/01", time: "12:00" },
