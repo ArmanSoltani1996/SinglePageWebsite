@@ -59,10 +59,10 @@ const FIXTURES = [
   { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "played", score: "1 - 6", date: "1405/06/28", time: "13:30" },
   { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "played", score:"3 - 1", date: "1405/06/28", time: "14:30" }, 
    
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "1405/07/01", time: "11:00" },
-  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "1405/07/01", time: "12:00" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "1405/07/01", time: "13:00" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "upcoming", date: "1405/07/01", time: "14:00" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "upcoming", date: "1405/07/01", time: "12:00" },
+  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "1405/07/01", time: "13:00" },
+  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "upcoming", date: "1405/07/01", time: "14:00" },
+  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "upcoming", date: "1405/07/01", time: "15:00" },
    
   { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "upcoming", date: "1405/07/04", time: "12:30" },
   { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز استان", status: "upcoming", date: "1405/07/04", time: "13:30" }, 
