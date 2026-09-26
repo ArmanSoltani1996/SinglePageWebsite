@@ -60,7 +60,7 @@ const FIXTURES = [
   { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "played", score:"3 - 1", date: "1405/06/28", time: "14:30" }, 
    
   { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "played", score: "3 - 3", date: "1405/07/01", time: "12:00" },
-  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "upcoming", date: "1405/07/01", time: "13:00" },
+  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "played", score: "3 - 0", date: "1405/07/01", time: "13:00" },
   { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "played", score: "11 - 2", date: "1405/07/01", time: "14:00" },
   { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "played", score: "0 - 0", date: "1405/07/01", time: "15:00" },
    
