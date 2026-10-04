@@ -73,7 +73,7 @@ const FIXTURES = [
   { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "played", score: "7 - 9", date: "1405/07/08", time: "14:30" },
    
   { group: "گروه ۲", home: "پگاه فارس", away: "زنجیره سالیذ", status: "played", score: "2 - 4", date: "1405/07/12", time: "12:30" }, 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "upcoming", date: "1405/07/12", time: "13:30" },
+  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "played", score: "3 - 8", date: "1405/07/12", time: "13:30" },
    
   { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "upcoming", date: "1405/07/15", time: "**" }
   
