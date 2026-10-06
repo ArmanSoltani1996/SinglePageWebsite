@@ -198,6 +198,217 @@ function initGroupTabs() {
 }
 
 /* =========================================================
+   مرحله حذفی (یک‌چهارم نهایی → نیمه‌نهایی → فینال)
+   =========================================================
+
+   دو تیم برتر هر گروه خودکار صعود می‌کنند (از همان جدولی که
+   از روی FIXTURES محاسبه شد) — شما فقط باید تعیین کنید کدام
+   گروه مقابل کدام گروه در یک‌چهارم قرار می‌گیرد (BRACKET_SEEDING)،
+   و بعد نتیجه هر بازی حذفی را همین‌جا وارد کنید.
+
+   برای هر بازی حذفی:
+     status: "upcoming"  →  "played"
+     score: "2 - 1"
+   اگر نتیجه مساوی شد و بازی با پنالتی تعیین تکلیف شد:
+     penalties: "5 - 4"
+   برنده خودکار به مرحله بعد (نیمه‌نهایی/فینال) می‌رود.
+*/
+
+// تعیین می‌کند در هر بازی یک‌چهارم، نفر اول/دوم کدام گروه روبه‌روی هم قرار می‌گیرند.
+// rank: 1 = صدرنشین گروه, 2 = نفر دوم گروه
+const BRACKET_SEEDING = {
+  qf1: { home: { group: "g1", rank: 1 }, away: { group: "g2", rank: 2 } },
+  qf2: { home: { group: "g3", rank: 1 }, away: { group: "g4", rank: 2 } },
+  qf3: { home: { group: "g2", rank: 1 }, away: { group: "g1", rank: 2 } },
+  qf4: { home: { group: "g4", rank: 1 }, away: { group: "g3", rank: 2 } }
+};
+
+// نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
+const KNOCKOUT_RESULTS = {
+  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۱", time: "۱۷:۰۰" },
+  qf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۱", time: "۱۹:۰۰" },
+  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۲", time: "۱۷:۰۰" },
+  qf4: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۲", time: "۱۹:۰۰" },
+  sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۸", time: "۱۸:۰۰" }, // برنده qf1 vs برنده qf2
+  sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۸", time: "۲۰:۰۰" }, // برنده qf3 vs برنده qf4
+  final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۱۵", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
+};
+
+// آیا همه بازی‌های یک گروه برگزار شده‌اند؟ (برای جلوگیری از صعود زودهنگام نادرست)
+function isGroupComplete(groupId) {
+  const group = GROUPS.find(g => g.id === groupId);
+  if (!group) return false;
+  const n = group.teams.length;
+  const expectedMatches = (n * (n - 1)) / 2; // دور رفت ساده
+  const playedCount = FIXTURES.filter(f => f.group === groupId && f.status === "played").length;
+  return playedCount >= expectedMatches;
+}
+
+function qualifierName(groupId, rank) {
+  if (!isGroupComplete(groupId)) return null; // هنوز گروه تمام نشده
+  const group = GROUPS.find(g => g.id === groupId);
+  const standings = computeStandings(group).sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf);
+  const team = standings[rank - 1];
+  return team ? team.name : null;
+}
+
+function knockoutWinner(matchId) {
+  const result = KNOCKOUT_RESULTS[matchId];
+  if (!result || result.status !== "played" || !result.score) return null;
+  const goals = parseScore(result.score);
+  if (!goals) return null;
+  if (goals.home > goals.away) return "home";
+  if (goals.away > goals.home) return "away";
+  // مساوی -> پنالتی
+  if (result.penalties) {
+    const pens = parseScore(result.penalties);
+    if (pens) {
+      if (pens.home > pens.away) return "home";
+      if (pens.away > pens.home) return "away";
+    }
+  }
+  return null; // مساوی بدون پنالتی ثبت‌شده -> هنوز نامشخص
+}
+
+// تیم‌های هر بازی یک‌چهارم را از روی جدول گروه‌ها پیدا می‌کند.
+// اگر گروه هنوز تمام نشده، نام واقعی null برمی‌گردد (نه یک متن جایگزین)
+// تا تشخیص "آماده/ناآماده" درست باقی بماند.
+function getQFSlot(seed) {
+  const cfg = BRACKET_SEEDING[seed];
+  return {
+    home: qualifierName(cfg.home.group, cfg.home.rank),
+    homeLabel: `نفر ${cfg.home.rank} ${groupLabel(cfg.home.group)}`,
+    away: qualifierName(cfg.away.group, cfg.away.rank),
+    awayLabel: `نفر ${cfg.away.rank} ${groupLabel(cfg.away.group)}`
+  };
+}
+
+function resolveMatch(matchId, homeFeeder, awayFeeder, fallbackLabels) {
+  const result = KNOCKOUT_RESULTS[matchId] || { status: "upcoming" };
+  const homeName = typeof homeFeeder === "function" ? homeFeeder() : homeFeeder;
+  const awayName = typeof awayFeeder === "function" ? awayFeeder() : awayFeeder;
+  const labels = fallbackLabels || {};
+
+  return {
+    id: matchId,
+    home: homeName || labels.home || "در انتظار",
+    away: awayName || labels.away || "در انتظار",
+    ready: Boolean(homeName && awayName),
+    status: result.status,
+    score: result.score,
+    penalties: result.penalties,
+    date: result.date,
+    time: result.time
+  };
+}
+
+function buildBracket() {
+  const qf1 = getQFSlot("qf1");
+  const qf2 = getQFSlot("qf2");
+  const qf3 = getQFSlot("qf3");
+  const qf4 = getQFSlot("qf4");
+
+  const matches = {};
+  matches.qf1 = resolveMatch("qf1", qf1.home, qf1.away, { home: qf1.homeLabel, away: qf1.awayLabel });
+  matches.qf2 = resolveMatch("qf2", qf2.home, qf2.away, { home: qf2.homeLabel, away: qf2.awayLabel });
+  matches.qf3 = resolveMatch("qf3", qf3.home, qf3.away, { home: qf3.homeLabel, away: qf3.awayLabel });
+  matches.qf4 = resolveMatch("qf4", qf4.home, qf4.away, { home: qf4.homeLabel, away: qf4.awayLabel });
+
+  const winnerName = (matchId) => {
+    const m = matches[matchId];
+    if (!m || !m.ready || m.status !== "played") return null;
+    const side = knockoutWinner(matchId);
+    return side ? m[side] : null;
+  };
+
+  matches.sf1 = resolveMatch("sf1", () => winnerName("qf1"), () => winnerName("qf2"),
+    { home: "برنده یک‌چهارم ۱", away: "برنده یک‌چهارم ۲" });
+  matches.sf2 = resolveMatch("sf2", () => winnerName("qf3"), () => winnerName("qf4"),
+    { home: "برنده یک‌چهارم ۳", away: "برنده یک‌چهارم ۴" });
+  matches.final = resolveMatch("final", () => winnerName("sf1"), () => winnerName("sf2"),
+    { home: "برنده نیمه‌نهایی ۱", away: "برنده نیمه‌نهایی ۲" });
+
+  const championSide = matches.final.status === "played" ? knockoutWinner("final") : null;
+  const champion = championSide ? matches.final[championSide] : null;
+
+  return { matches, champion };
+}
+
+/* ---------- رندر یک کارت بازی در برکت ---------- */
+function renderBracketMatch(m) {
+  const isPlayed = m.status === "played" && m.ready;
+  let scoreLine = "";
+  if (isPlayed) {
+    scoreLine = m.score || "";
+    if (m.penalties) scoreLine += ` <span class="bracket-pens">(پن ${m.penalties})</span>`;
+  }
+
+  const winnerSide = isPlayed ? knockoutWinner(m.id) : null;
+
+  return `
+    <div class="match ${m.ready ? "" : "is-tbd"}">
+      <div class="match__row ${winnerSide === "home" ? "is-winner" : ""}">
+        <span class="match__team">${m.home}</span>
+        <span class="match__score">${isPlayed ? (m.score ? m.score.split("-")[0].trim() : "") : ""}</span>
+      </div>
+      <div class="match__row ${winnerSide === "away" ? "is-winner" : ""}">
+        <span class="match__team">${m.away}</span>
+        <span class="match__score">${isPlayed ? (m.score ? m.score.split("-")[1].trim() : "") : ""}</span>
+      </div>
+      <div class="match__meta">
+        ${isPlayed
+          ? `<span class="badge badge--played">پایان${m.penalties ? ` · پن ${m.penalties}` : ""}</span>`
+          : m.ready
+            ? `<span class="badge badge--upcoming">${m.date || ""} — ${m.time || ""}</span>`
+            : `<span class="badge badge--tbd">در انتظار نتایج گروه</span>`}
+      </div>
+    </div>
+  `;
+}
+
+function renderBracket() {
+  const host = document.getElementById("knockoutBracket");
+  if (!host) return;
+
+  const { matches, champion } = buildBracket();
+
+  host.innerHTML = `
+    <div class="bracket">
+      <div class="bracket-round bracket-round--qf">
+        <p class="bracket-round__label">یک‌چهارم نهایی</p>
+        <div class="bracket-round__matches">
+          ${renderBracketMatch(matches.qf1)}
+          ${renderBracketMatch(matches.qf2)}
+          ${renderBracketMatch(matches.qf3)}
+          ${renderBracketMatch(matches.qf4)}
+        </div>
+      </div>
+      <div class="bracket-round bracket-round--sf">
+        <p class="bracket-round__label">نیمه‌نهایی</p>
+        <div class="bracket-round__matches">
+          ${renderBracketMatch(matches.sf1)}
+          ${renderBracketMatch(matches.sf2)}
+        </div>
+      </div>
+      <div class="bracket-round bracket-round--final">
+        <p class="bracket-round__label">فینال</p>
+        <div class="bracket-round__matches">
+          ${renderBracketMatch(matches.final)}
+        </div>
+      </div>
+    </div>
+    ${champion ? `
+      <div class="champion-card">
+        <svg viewBox="0 0 24 24" class="champion-card__icon"><path d="M8 4h8v5a4 4 0 01-8 0V4z"></path><path d="M8 5H4v2a4 4 0 004 4M16 5h4v2a4 4 0 01-4 4"></path><path d="M12 13v4M9 21h6M10 17h4v4h-4z"></path></svg>
+        <div>
+          <p class="champion-card__label">قهرمان مسابقات</p>
+          <p class="champion-card__name">${champion}</p>
+        </div>
+      </div>` : ""}
+  `;
+}
+
+/* =========================================================
    رندر برنامه مسابقات (اسکرول‌پذیر)
    ========================================================= */
 function groupLabel(id) {
@@ -254,6 +465,7 @@ function initFixtures() {
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   initGroupTabs();
+  renderBracket();
   initFixtures();
   const yearEl = document.getElementById("compYear");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
