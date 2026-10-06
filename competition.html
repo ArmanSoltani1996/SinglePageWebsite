@@ -36,6 +36,7 @@
 
   <section class="comp-section" aria-labelledby="standings-h">
     <div class="comp-section__head">
+      <p class="section__eyebrow">مرحله گروهی</p>
       <h2 id="standings-h" class="section__title">جدول گروه‌ها</h2>
     </div>
 
@@ -43,9 +44,20 @@
     <div id="groupTableHost" class="group-table-host" aria-live="polite"></div>
   </section>
 
+  <section class="comp-section" aria-labelledby="bracket-h">
+    <div class="comp-section__head">
+      <p class="section__eyebrow">مرحله حذفی</p>
+      <h2 id="bracket-h" class="section__title">نمودار یک‌چهارم نهایی تا فینال</h2>
+      <p class="comp-section__note">دو تیم برتر هر گروه صعود می‌کنند؛ از این مرحله به بعد مسابقات تک‌حذفی است.</p>
+    </div>
+
+    <div id="knockoutBracket" class="bracket-host" aria-live="polite"></div>
+  </section>
+
   <section class="comp-section" aria-labelledby="fixtures-h">
     <div class="comp-section__head">
-      <h2 id="fixtures-h" class="section__title">بازی‌ها</h2>
+      <p class="section__eyebrow">برنامه مسابقات</p>
+      <h2 id="fixtures-h" class="section__title">بازی‌های مرحله گروهی</h2>
     </div>
 
     <div class="tab-bar tab-bar--filter" id="fixtureFilters" role="tablist" aria-label="فیلتر بازی‌ها">
