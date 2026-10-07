@@ -362,7 +362,7 @@ function renderBracketMatch(m) {
           ? `<span class="badge badge--played">پایان${m.penalties ? ` · پن ${m.penalties}` : ""}</span>`
           : m.ready
             ? `<span class="badge badge--upcoming">${m.date || ""} — ${m.time || ""}</span>`
-            : `<span class="badge badge--tbd">در انتظار نتایج گروه</span>`}
+            : `<span class="badge badge--tbd">در انتظار نتایج </span>`}
       </div>
     </div>
   `;
