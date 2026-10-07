@@ -217,7 +217,7 @@ function initGroupTabs() {
 // تعیین می‌کند در هر بازی یک‌چهارم، نفر اول/دوم کدام گروه روبه‌روی هم قرار می‌گیرند.
 // rank: 1 = صدرنشین گروه, 2 = نفر دوم گروه
 
-console.log("a")
+console.log("b")
 console.log("BRACKET_SEEDING")
 const BRACKET_SEEDING = {
   qf1: { home: { group: "g1", rank: 1 }, away: { group: "g2", rank: 2 } },
