@@ -11,7 +11,7 @@ body.comp-page{
 /* ---------- Header ---------- */
 .comp-header{
   border-bottom:1px solid var(--border-soft);
-  background:linear-gradient(180deg, var(--surface), var(--bg)); align-items:center;
+  background:linear-gradient(180deg, var(--surface), var(--bg)); align-items:center; display:flex;
 }
 .comp-header__inner{
   max-width:1000px; margin:0 auto;
