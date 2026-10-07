@@ -248,8 +248,7 @@ function isGroupComplete(groupId) {
   console.log(expectedMatches)
   return playedCount >= expectedMatches;
 }
-console.log(playedCount)
-console.log(expectedMatches)
+
 
 function qualifierName(groupId, rank) {
   if (!isGroupComplete(groupId)) return null; // هنوز گروه تمام نشده
