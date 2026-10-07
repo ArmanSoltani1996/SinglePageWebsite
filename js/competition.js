@@ -246,6 +246,8 @@ function isGroupComplete(groupId) {
   const playedCount = FIXTURES.filter(f => f.group === groupId && f.status === "played").length;
   return playedCount >= expectedMatches;
 }
+console.log(playedCount)
+console.log(expectedMatches)
 
 function qualifierName(groupId, rank) {
   if (!isGroupComplete(groupId)) return null; // هنوز گروه تمام نشده
