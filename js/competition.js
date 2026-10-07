@@ -218,7 +218,6 @@ function initGroupTabs() {
 // rank: 1 = صدرنشین گروه, 2 = نفر دوم گروه
 
 console.log("c")
-console.log(BRACKET_SEEDING)
 const BRACKET_SEEDING = {
   qf1: { home: { group: "g1", rank: 1 }, away: { group: "g2", rank: 2 } },
   qf2: { home: { group: "g3", rank: 1 }, away: { group: "g4", rank: 2 } },
