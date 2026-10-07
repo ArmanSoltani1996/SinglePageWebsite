@@ -226,10 +226,10 @@ const BRACKET_SEEDING = {
 
 // نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
 const KNOCKOUT_RESULTS = {
-  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۷:۰۰" },
-  qf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۹:۰۰" },
-  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۷:۰۰" },
-  qf4: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۹:۰۰" },
+  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۲:۰۰" },
+  qf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۳:۰۰" },
+  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
+  qf4: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۳:۰۰" },
   sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۱۸:۰۰" }, // برنده qf1 vs برنده qf2
   sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۲۰:۰۰" }, // برنده qf3 vs برنده qf4
   final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۸/۰۱", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
