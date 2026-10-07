@@ -244,6 +244,8 @@ function isGroupComplete(groupId) {
   const n = group.teams.length;
   const expectedMatches = (n * (n - 1)) / 2; // دور رفت ساده
   const playedCount = FIXTURES.filter(f => f.group === groupId && f.status === "played").length;
+  console.log(playedCount)
+  console.log(expectedMatches)
   return playedCount >= expectedMatches;
 }
 console.log(playedCount)
