@@ -217,14 +217,12 @@ function initGroupTabs() {
 // تعیین می‌کند در هر بازی یک‌چهارم، نفر اول/دوم کدام گروه روبه‌روی هم قرار می‌گیرند.
 // rank: 1 = صدرنشین گروه, 2 = نفر دوم گروه
 
-console.log("c")
 const BRACKET_SEEDING = {
   qf1: { home: { group: "g1", rank: 1 }, away: { group: "g2", rank: 2 } },
   qf2: { home: { group: "g3", rank: 1 }, away: { group: "g4", rank: 2 } },
   qf3: { home: { group: "g2", rank: 1 }, away: { group: "g1", rank: 2 } },
   qf4: { home: { group: "g4", rank: 1 }, away: { group: "g3", rank: 2 } }
 };
-console.log(BRACKET_SEEDING)
 
 // نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
 const KNOCKOUT_RESULTS = {
@@ -244,8 +242,6 @@ function isGroupComplete(groupId) {
   const n = group.teams.length;
   const expectedMatches = (n * (n - 1)) / 2; // دور رفت ساده
   const playedCount = FIXTURES.filter(f => f.group === groupId && f.status === "played").length;
-  console.log(playedCount)
-  console.log(expectedMatches)
   return playedCount >= expectedMatches;
 }
 
