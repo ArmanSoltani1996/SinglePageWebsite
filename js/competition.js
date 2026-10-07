@@ -225,6 +225,7 @@ const BRACKET_SEEDING = {
   qf3: { home: { group: "g2", rank: 1 }, away: { group: "g1", rank: 2 } },
   qf4: { home: { group: "g4", rank: 1 }, away: { group: "g3", rank: 2 } }
 };
+console.log(BRACKET_SEEDING)
 
 // نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
 const KNOCKOUT_RESULTS = {
