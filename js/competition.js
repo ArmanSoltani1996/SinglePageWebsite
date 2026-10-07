@@ -48,34 +48,34 @@ const GROUPS = [
 // (عدد اول "score" = گل تیم home، عدد دوم = گل تیم away، یعنی «گل home - گل away»)
 const FIXTURES = [
   
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "فولاد غدیر نی ریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۶/۲۴", time: "۱۴:۱۵" }, //
-  { group: "گروه ۲", home: "پارس الکل اقلید", away: "زنجیره سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۶/۲۴", time: "۱۵:۱۵" },//
+  { group: "g3", home: "پتروشیمی شیراز", away: "فولاد غدیر نی ریز", status: "played", score: "2 - 3", date: "۱۴۰۵/۰۶/۲۴", time: "۱۴:۱۵" }, //
+  { group: "g2", home: "پارس الکل اقلید", away: "زنجیره سالیذ", status: "played", score: "0 - 4", date: "۱۴۰۵/۰۶/۲۴", time: "۱۵:۱۵" },//
    
-  { group: "گروه ۱", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۱:۰۰" },//
-  { group: "گروه ۴", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۲:۰۰" },//
-  { group: "گروه ۲", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۳:۰۰" },//
+  { group: "g1", home: "آرتا تجارت", away: "نظام مهندسی", status: "played", score: "2 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۱:۰۰" },//
+  { group: "g4", home: "شام شام", away: "فراسان", status: "played", score: "8 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۲:۰۰" },//
+  { group: "g2", home: "پگاه فارس", away: "پارس الکل اقلید", status: "played", score: "4 - 1", date: "۱۴۰۵/۰۶/۲۵", time: "۱۳:۰۰" },//
    
-  { group: "گروه ۳", home: "یاسین پلاست", away: "گاز استان", status: "played", score: "0 - 4", date: "1405/06/28", time: "12:30" },
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "played", score: "1 - 6", date: "1405/06/28", time: "13:30" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "شام شام", status: "played", score:"3 - 1", date: "1405/06/28", time: "14:30" }, 
+  { group: "g3", home: "یاسین پلاست", away: "گاز استان", status: "played", score: "0 - 4", date: "1405/06/28", time: "12:30" },
+  { group: "g1", home: "سیمان فارس نو", away: "صنایع شیمیایی فارس", status: "played", score: "1 - 6", date: "1405/06/28", time: "13:30" },
+  { group: "g4", home: "شهرداری شیراز", away: "شام شام", status: "played", score:"3 - 1", date: "1405/06/28", time: "14:30" }, 
    
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "نظام مهندسی", status: "played", score: "3 - 3", date: "1405/07/01", time: "12:00" },
-  { group: "گروه ۲", home: "رامک", away: "پارس الکل اقلید", status: "played", score: "3 - 0", date: "1405/07/01", time: "13:00" },
-  { group: "گروه ۴", home: "شهرداری شیراز", away: "فراسان", status: "played", score: "11 - 2", date: "1405/07/01", time: "14:00" },
-  { group: "گروه ۳", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "played", score: "0 - 0", date: "1405/07/01", time: "15:00" },
+  { group: "g1", home: "سیمان فارس نو", away: "نظام مهندسی", status: "played", score: "3 - 3", date: "1405/07/01", time: "12:00" },
+  { group: "g2", home: "رامک", away: "پارس الکل اقلید", status: "played", score: "3 - 0", date: "1405/07/01", time: "13:00" },
+  { group: "g4", home: "شهرداری شیراز", away: "فراسان", status: "played", score: "11 - 2", date: "1405/07/01", time: "14:00" },
+  { group: "g3", home: "یاسین پلاست", away: "فولاد غدیر نی ریز", status: "played", score: "0 - 0", date: "1405/07/01", time: "15:00" },
    
-  { group: "گروه ۱", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "played", score: "2 - 4", date: "1405/07/04", time: "12:30" },
-  { group: "گروه ۳", home: "پتروشیمی شیراز", away: "گاز استان", status: "played", score: "2 - 1", date: "1405/07/04", time: "13:30" }, 
-  { group: "گروه ۲", home: "رامک", away: "زنجیره سالیذ", status: "played", score: "2 - 0", date: "1405/07/04", time: "14:30" },
+  { group: "g1", home: "آرتا تجارت", away: "صنایع شیمیایی فارس", status: "played", score: "2 - 4", date: "1405/07/04", time: "12:30" },
+  { group: "g3", home: "پتروشیمی شیراز", away: "گاز استان", status: "played", score: "2 - 1", date: "1405/07/04", time: "13:30" }, 
+  { group: "g2", home: "رامک", away: "زنجیره سالیذ", status: "played", score: "2 - 0", date: "1405/07/04", time: "14:30" },
 
-  { group: "گروه ۳", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "played", score: "4 - 3", date: "1405/07/08", time: "12:30" },
-  { group: "گروه ۳", home: "فولاد غدیر نی ریز", away: "گاز استان", status: "played", score: "4 - 0", date: "1405/07/08", time: "13:30" },
-  { group: "گروه ۱", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "played", score: "7 - 9", date: "1405/07/08", time: "14:30" },
+  { group: "g3", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "played", score: "4 - 3", date: "1405/07/08", time: "12:30" },
+  { group: "g3", home: "فولاد غدیر نی ریز", away: "گاز استان", status: "played", score: "4 - 0", date: "1405/07/08", time: "13:30" },
+  { group: "g1", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "played", score: "7 - 9", date: "1405/07/08", time: "14:30" },
    
-  { group: "گروه ۲", home: "پگاه فارس", away: "زنجیره سالیذ", status: "played", score: "2 - 4", date: "1405/07/12", time: "12:30" }, 
-  { group: "گروه ۱", home: "سیمان فارس نو", away: "آرتا تجارت", status: "played", score: "3 - 8", date: "1405/07/12", time: "13:30" },
+  { group: "g2", home: "پگاه فارس", away: "زنجیره سالیذ", status: "played", score: "2 - 4", date: "1405/07/12", time: "12:30" }, 
+  { group: "g1", home: "سیمان فارس نو", away: "آرتا تجارت", status: "played", score: "3 - 8", date: "1405/07/12", time: "13:30" },
    
-  { group: "گروه ۲", home: "رامک", away: "پگاه فارس", status: "played", score: "4 - 3", date: "1405/07/15", time: "13:45" }
+  { group: "g2", home: "رامک", away: "پگاه فارس", status: "played", score: "4 - 3", date: "1405/07/15", time: "13:45" }
   
 ];
 //۰۱۲۳۴۵۶۷۸۹
