@@ -68,7 +68,7 @@ const FIXTURES = [
   { group: "g3", home: "پتروشیمی شیراز", away: "گاز استان", status: "played", score: "2 - 1", date: "1405/07/04", time: "13:30" }, 
   { group: "g2", home: "رامک", away: "زنجیره سالیذ", status: "played", score: "2 - 0", date: "1405/07/04", time: "14:30" },
 
-  { group: "g3", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "played", score: "4 - 3", date: "1405/07/08", time: "12:30" },
+  { group: "g3", home: "یاسین پلاست", away: "پتروشیمی شیراز", status: "played", score: "0 - 3", date: "1405/07/08", time: "12:30" },
   { group: "g3", home: "فولاد غدیر نی ریز", away: "گاز استان", status: "played", score: "4 - 0", date: "1405/07/08", time: "13:30" },
   { group: "g1", home: "نظام مهندسی", away: "صنایع شیمیایی فارس", status: "played", score: "7 - 9", date: "1405/07/08", time: "14:30" },
    
