@@ -226,13 +226,13 @@ const BRACKET_SEEDING = {
 
 // نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
 const KNOCKOUT_RESULTS = {
-  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۱", time: "۱۷:۰۰" },
-  qf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۱", time: "۱۹:۰۰" },
-  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۲", time: "۱۷:۰۰" },
-  qf4: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۲", time: "۱۹:۰۰" },
-  sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۸", time: "۱۸:۰۰" }, // برنده qf1 vs برنده qf2
-  sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۰۸", time: "۲۰:۰۰" }, // برنده qf3 vs برنده qf4
-  final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۲/۱۵", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
+  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۷:۰۰" },
+  qf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۹:۰۰" },
+  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۷:۰۰" },
+  qf4: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۹:۰۰" },
+  sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۱۸:۰۰" }, // برنده qf1 vs برنده qf2
+  sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۲۰:۰۰" }, // برنده qf3 vs برنده qf4
+  final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۸/۰۱", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
 };
 
 // آیا همه بازی‌های یک گروه برگزار شده‌اند؟ (برای جلوگیری از صعود زودهنگام نادرست)
