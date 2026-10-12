@@ -226,7 +226,7 @@ const BRACKET_SEEDING = {
 
 // نتایج مرحله حذفی — فقط همین بخش را برای ثبت نتایج ویرایش کنید.
 const KNOCKOUT_RESULTS = {
-  qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۳:۰۰" },
+  qf1: { status: "played", score: "0 - 0", penalties: "3 - 5", date: "۱۴۰۵/۰۷/۲۰", time: "۱۳:۰۰" },
   qf2: { status: "played", score: "5 - 2", penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۳:۰۰" },
   qf3: { status: "played", score: "6 - 1", penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۲:۰۰" },
   qf4: { status: "played", score: "1 - 1", penalties: "1 - 4", date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
