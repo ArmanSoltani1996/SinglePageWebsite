@@ -228,7 +228,7 @@ const BRACKET_SEEDING = {
 const KNOCKOUT_RESULTS = {
   qf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۳:۰۰" },
   qf2: { status: "played", score: "5 - 2", penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۳:۰۰" },
-  qf3: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۲:۰۰" },
+  qf3: { status: "played", score: "6 - 1", penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۲:۰۰" },
   qf4: { status: "played", score: "1 - 1", penalties: "1 - 4", date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
   sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۱۸:۰۰" }, // برنده qf1 vs برنده qf2
   sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۸", time: "۲۰:۰۰" }, // برنده qf3 vs برنده qf4
