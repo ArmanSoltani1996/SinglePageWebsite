@@ -230,8 +230,8 @@ const KNOCKOUT_RESULTS = {
   qf2: { status: "played", score: "5 - 2", penalties: null, date: "۱۴۰۵/۰۷/۱۸", time: "۱۳:۰۰" },
   qf3: { status: "played", score: "6 - 1", penalties: null, date: "۱۴۰۵/۰۷/۲۰", time: "۱۲:۰۰" },
   qf4: { status: "played", score: "1 - 1", penalties: "1 - 4", date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
-  sf1: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۶", time: "۱۲:۱۵ سالن پهلوان نصیر" }, // برنده qf1 vs برنده qf2
-  sf2: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۶", time: "۱۳:۱۵ سالن پهلوان نصیر" }, // برنده qf3 vs برنده qf4
+  sf1: { status: "played", score: "0 - 0", penalties: "3 - 2", date: "۱۴۰۵/۰۷/۲۶", time: "۱۲:۱۵ سالن پهلوان نصیر" }, // برنده qf1 vs برنده qf2
+  sf2: { status: "played", score: "3 - 3", penalties: "4 - 3", date: "۱۴۰۵/۰۷/۲۶", time: "۱۳:۱۵ سالن پهلوان نصیر" }, // برنده qf3 vs برنده qf4
   final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۸/۰۱", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
 };
 
