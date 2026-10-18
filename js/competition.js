@@ -232,7 +232,7 @@ const KNOCKOUT_RESULTS = {
   qf4: { status: "played", score: "1 - 1", penalties: "1 - 4", date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
   sf1: { status: "played", score: "0 - 0", penalties: "3 - 2", date: "۱۴۰۵/۰۷/۲۶", time: "۱۲:۱۵ سالن پهلوان نصیر" }, // برنده qf1 vs برنده qf2
   sf2: { status: "played", score: "3 - 3", penalties: "4 - 3", date: "۱۴۰۵/۰۷/۲۶", time: "۱۳:۱۵ سالن پهلوان نصیر" }, // برنده qf3 vs برنده qf4
-  final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۸/۰۱", time: "۱۸:۰۰" } // برنده sf1 vs برنده sf2
+  final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۹", time: "۰۰:۰۰" } // برنده sf1 vs برنده sf2
 };
 
 // آیا همه بازی‌های یک گروه برگزار شده‌اند؟ (برای جلوگیری از صعود زودهنگام نادرست)
