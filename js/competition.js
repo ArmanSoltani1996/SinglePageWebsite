@@ -425,6 +425,7 @@ function renderBracket() {
         <div class="bracket-round__matches">
           ${renderBracketMatch(matches.final)}
         </div>
+        <p class="bracket-round__label">رده بندی</p>
         <div class="bracket-round__matches">
           ${renderBracketMatch(matches.p3d)}
         </div>
