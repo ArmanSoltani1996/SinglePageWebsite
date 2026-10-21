@@ -232,6 +232,7 @@ const KNOCKOUT_RESULTS = {
   qf4: { status: "played", score: "1 - 1", penalties: "1 - 4", date: "۱۴۰۵/۰۷/۱۸", time: "۱۲:۰۰" },
   sf1: { status: "played", score: "0 - 0", penalties: "3 - 2", date: "۱۴۰۵/۰۷/۲۶", time: "۱۲:۱۵ سالن پهلوان نصیر" }, // برنده qf1 vs برنده qf2
   sf2: { status: "played", score: "3 - 3", penalties: "4 - 3", date: "۱۴۰۵/۰۷/۲۶", time: "۱۳:۱۵ سالن پهلوان نصیر" }, // برنده qf3 vs برنده qf4
+  p3d: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۹", time: "۰۰:۰۰" }, // برنده sf1 vs برنده sf2
   final: { status: "upcoming", score: null, penalties: null, date: "۱۴۰۵/۰۷/۲۹", time: "۰۰:۰۰" } // برنده sf1 vs برنده sf2
 };
 
@@ -267,6 +268,24 @@ function knockoutWinner(matchId) {
     if (pens) {
       if (pens.home > pens.away) return "home";
       if (pens.away > pens.home) return "away";
+    }
+  }
+  return null; // مساوی بدون پنالتی ثبت‌شده -> هنوز نامشخص
+}
+
+function knockoutLooser(matchId) {
+  const result = KNOCKOUT_RESULTS[matchId];
+  if (!result || result.status !== "played" || !result.score) return null;
+  const goals = parseScore(result.score);
+  if (!goals) return null;
+  if (goals.home > goals.away) return "away";
+  if (goals.away > goals.home) return "home";
+  // مساوی -> پنالتی
+  if (result.penalties) {
+    const pens = parseScore(result.penalties);
+    if (pens) {
+      if (pens.home > pens.away) return "away";
+      if (pens.away > pens.home) return "home";
     }
   }
   return null; // مساوی بدون پنالتی ثبت‌شده -> هنوز نامشخص
@@ -323,10 +342,19 @@ function buildBracket() {
     return side ? m[side] : null;
   };
 
+  const looserName = (matchId) => {
+    const m = matches[matchId];
+    if (!m || !m.ready || m.status !== "played") return null;
+    const side = knockoutLooser(matchId);
+    return side ? m[side] : null;
+  };
+
   matches.sf1 = resolveMatch("sf1", () => winnerName("qf1"), () => winnerName("qf2"),
     { home: "برنده یک‌چهارم ۱", away: "برنده یک‌چهارم ۲" });
   matches.sf2 = resolveMatch("sf2", () => winnerName("qf3"), () => winnerName("qf4"),
     { home: "برنده یک‌چهارم ۳", away: "برنده یک‌چهارم ۴" });
+  matches.p3d = resolveMatch("final", () => looserName("sf1"), () => looserName("sf2"),
+    { home: "بازنده نیمه‌نهایی ۱", away: "بازنده نیمه‌نهایی ۲" });
   matches.final = resolveMatch("final", () => winnerName("sf1"), () => winnerName("sf2"),
     { home: "برنده نیمه‌نهایی ۱", away: "برنده نیمه‌نهایی ۲" });
 
@@ -396,6 +424,9 @@ function renderBracket() {
         <p class="bracket-round__label">فینال</p>
         <div class="bracket-round__matches">
           ${renderBracketMatch(matches.final)}
+        </div>
+        <div class="bracket-round__matches">
+          ${renderBracketMatch(matches.p3d)}
         </div>
       </div>
     </div>
