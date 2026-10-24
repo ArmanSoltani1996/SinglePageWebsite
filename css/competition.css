@@ -11,7 +11,7 @@ body.comp-page{
 /* ---------- Header ---------- */
 .comp-header{
   border-bottom:1px solid var(--border-soft);
-  background:linear-gradient(180deg, var(--surface), var(--bg)); align-items:center; display:flex;
+  background:linear-gradient(180deg, var(--surface), var(--bg));
 }
 .comp-header__inner{
   max-width:1000px; margin:0 auto;
@@ -21,7 +21,7 @@ body.comp-page{
 }
 .comp-header__brand{ display:flex; align-items:center; gap:16px; }
 .comp-logo{
-  width:100px; height:100px; flex-shrink:0;
+  width:52px; height:52px; flex-shrink:0;
   border-radius:12px;
   background:var(--surface-2);
   border:1px solid var(--border);
@@ -37,19 +37,7 @@ body.comp-page{
 }
 .comp-title{
   font-family:var(--font-fa); font-weight:700; font-size:1.5rem;
-  margin:0; color:var(--text); text-align:center;
-}
-@media (max-width:700px){
-   .comp-title{
-     font-family:var(--font-fa); font-weight:700; font-size:1.5rem;
-     margin:0; color:var(--text); text-align:center;
-   }
-}
-@media (max-width:440px){
-   .comp-title{
-     font-family:var(--font-fa); font-weight:700; font-size:1rem;
-     margin:0; color:var(--text); text-align:center;
-   }   
+  margin:0; color:var(--text);
 }
 .comp-header__back{ white-space:nowrap; }
 
@@ -288,26 +276,51 @@ body.comp-page{
 .badge--tbd{ background:var(--surface-2); color:var(--text-dim); border:1px solid var(--border-soft); }
 .bracket-pens{ color:var(--text-dim); font-size:.78rem; }
 
-.champion-card{
+/* third-place match sits under the final, pinned to the bottom of its column */
+.bracket-round--final{ position:relative; }
+.bracket-third{ position:absolute; left:0; right:0; bottom:0; }
+.bracket-third .bracket-round__label{ margin-bottom:10px; color:var(--copper); }
+
+/* final standings podium: 1st / 2nd / 3rd */
+.podium{
+  display:flex; flex-wrap:wrap; gap:14px;
+  margin-top:28px;
+}
+.podium-card{
+  flex:1 1 220px; max-width:320px;
   display:flex; align-items:center; gap:16px;
-  margin-top:28px; padding:20px 24px;
-  background:linear-gradient(135deg, var(--copper-dim), transparent);
-  border:1px solid var(--copper);
+  padding:18px 22px;
   border-radius:10px;
-  max-width:420px;
+  border:1px solid var(--border);
+  background:var(--surface);
 }
-.champion-card__icon{
-  width:34px; height:34px; flex-shrink:0;
-  fill:none; stroke:var(--copper-bright); stroke-width:1.6; stroke-linecap:round;
+.podium-card__medal{
+  width:42px; height:42px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%;
+  font-family:var(--font-fa); font-weight:700; font-size:1.15rem;
+  color:#0d1117; background:var(--text-muted);
 }
-.champion-card__label{
-  font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim);
-  margin:0 0 2px; letter-spacing:.03em;
+.podium-card__label{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.03em;
+  color:var(--text-dim); margin:0 0 2px;
 }
-.champion-card__name{
-  font-family:var(--font-fa); font-size:1.2rem; font-weight:700;
-  color:var(--copper-bright); margin:0;
+.podium-card__name{
+  font-family:var(--font-fa); font-size:1.1rem; font-weight:700;
+  color:var(--text); margin:0;
 }
+.podium-card--1{
+  border-color:var(--copper);
+  background:linear-gradient(135deg, var(--copper-dim), transparent);
+}
+.podium-card--1 .podium-card__medal{ background:var(--copper-bright); }
+.podium-card--1 .podium-card__name{ color:var(--copper-bright); font-size:1.25rem; }
+.podium-card--2{ border-color:#8c97a3; background:linear-gradient(135deg, rgba(195,204,214,.12), transparent); }
+.podium-card--2 .podium-card__medal{ background:#c3ccd6; }
+.podium-card--3{ border-color:#9a6a47; background:linear-gradient(135deg, rgba(169,113,75,.16), transparent); }
+.podium-card--3 .podium-card__medal{ background:#b07a50; }
+.podium-card.is-pending{ opacity:.55; }
+.podium-card.is-pending .podium-card__name{ color:var(--text-dim); font-weight:500; font-size:.95rem; }
 
 /* ---------- Footer ---------- */
 .comp-footer{
