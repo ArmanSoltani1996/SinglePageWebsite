@@ -273,7 +273,7 @@ function knockoutWinner(matchId) {
   return null; // مساوی بدون پنالتی ثبت‌شده -> هنوز نامشخص
 }
 
-function knockoutLooser(matchId) {
+function knockoutLoser(matchId) {
   const result = KNOCKOUT_RESULTS[matchId];
   if (!result || result.status !== "played" || !result.score) return null;
   const goals = parseScore(result.score);
@@ -345,7 +345,7 @@ function buildBracket() {
   const loserName = (matchId) => {
     const m = matches[matchId];
     if (!m || !m.ready || m.status !== "played") return null;
-    const side = knockoutLooser(matchId);
+    const side = knockoutLoser(matchId);
     return side ? m[side] : null;
   };
 
