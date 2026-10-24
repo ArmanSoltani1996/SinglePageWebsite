@@ -362,7 +362,7 @@ function buildBracket() {
   const runnerUp = loserName("final");
   const third = winnerName("p3d");
 
-  return { matches, champion };
+  return { matches, champion, runnerUp, third };
 }
 
 /* ---------- رندر یک کارت بازی در برکت ---------- */
