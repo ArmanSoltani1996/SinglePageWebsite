@@ -367,7 +367,7 @@ function buildBracket() {
 
 /* ---------- رندر یک کارت بازی در برکت ---------- */
 function renderBracketMatch(m) {
-  const isPlayed = m.status === "played" && m.ready;
+  const isPlayed = m.status === "played";
   let scoreLine = "";
   if (isPlayed) {
     scoreLine = m.score || "";
