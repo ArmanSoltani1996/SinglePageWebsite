@@ -358,8 +358,9 @@ function buildBracket() {
   matches.final = resolveMatch("final", () => winnerName("sf1"), () => winnerName("sf2"),
     { home: "برنده نیمه‌نهایی ۱", away: "برنده نیمه‌نهایی ۲" });
 
-  const championSide = matches.final.status === "played" ? knockoutWinner("final") : null;
-  const champion = championSide ? matches.final[championSide] : null;
+  const champion = winnerName("final");
+  const runnerUp = loserName("final");
+  const third = winnerName("p3d");
 
   return { matches, champion };
 }
@@ -390,17 +391,36 @@ function renderBracketMatch(m) {
           ? `<span class="badge badge--played">پایان${m.penalties ? ` · پن ${m.penalties}` : ""}</span>`
           : m.ready
             ? `<span class="badge badge--upcoming">${m.date || ""} — ${m.time || ""}</span>`
-            : `<span class="badge badge--tbd">در انتظار نتایج </span>`}
+            : `<span class="badge badge--tbd">در انتظار تعیین تیم‌ها</span>`}
       </div>
     </div>
   `;
+}
+
+/* ---------- سکوی رتبه‌های ۱ تا ۳ ---------- */
+function renderPodium(champion, runnerUp, third) {
+  if (!champion && !runnerUp && !third) return ""; // تا وقتی هیچ رتبه‌ای مشخص نشده، نمایش نده
+  const card = (rank, digit, label, name) => `
+    <div class="podium-card podium-card--${rank} ${name ? "" : "is-pending"}">
+      <span class="podium-card__medal" aria-hidden="true">${digit}</span>
+      <div>
+        <p class="podium-card__label">${label}</p>
+        <p class="podium-card__name">${name || "در انتظار نتیجه"}</p>
+      </div>
+    </div>`;
+  return `
+    <div class="podium" role="list" aria-label="رتبه‌بندی نهایی مسابقات">
+      ${card(1, "۱", "قهرمان مسابقات", champion)}
+      ${card(2, "۲", "نایب‌قهرمان", runnerUp)}
+      ${card(3, "۳", "مقام سوم", third)}
+    </div>`;
 }
 
 function renderBracket() {
   const host = document.getElementById("knockoutBracket");
   if (!host) return;
 
-  const { matches, champion } = buildBracket();
+  const { matches, champion, runnerUp, third } = buildBracket();
 
   host.innerHTML = `
     <div class="bracket">
@@ -425,20 +445,13 @@ function renderBracket() {
         <div class="bracket-round__matches">
           ${renderBracketMatch(matches.final)}
         </div>
-        <p class="bracket-round__label">رده بندی</p>
-        <div class="bracket-round__matches">
-          ${renderBracketMatch(matches.p3d)}
+        <div class="bracket-third">
+          <p class="bracket-round__label">رده‌بندی (مقام سوم)</p>
+          ${renderBracketMatch(matches.third)}
         </div>
       </div>
     </div>
-    ${champion ? `
-      <div class="champion-card">
-        <svg viewBox="0 0 24 24" class="champion-card__icon"><path d="M8 4h8v5a4 4 0 01-8 0V4z"></path><path d="M8 5H4v2a4 4 0 004 4M16 5h4v2a4 4 0 01-4 4"></path><path d="M12 13v4M9 21h6M10 17h4v4h-4z"></path></svg>
-        <div>
-          <p class="champion-card__label">قهرمان مسابقات</p>
-          <p class="champion-card__name">${champion}</p>
-        </div>
-      </div>` : ""}
+    ${renderPodium(champion, runnerUp, third)}
   `;
 }
 
