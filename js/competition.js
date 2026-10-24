@@ -367,7 +367,7 @@ function buildBracket() {
 
 /* ---------- رندر یک کارت بازی در برکت ---------- */
 function renderBracketMatch(m) {
-  const isPlayed = m.status === "played";
+  const isPlayed = m.status === "played" && m.ready;
   let scoreLine = "";
   if (isPlayed) {
     scoreLine = m.score || "";
@@ -447,7 +447,7 @@ function renderBracket() {
         </div>
         <div class="bracket-third">
           <p class="bracket-round__label">رده‌بندی (مقام سوم)</p>
-          ${renderBracketMatch(matches.third)}
+          ${renderBracketMatch(matches.p3d)}
         </div>
       </div>
     </div>
