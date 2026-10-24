@@ -16,7 +16,7 @@ body.comp-page{
 .comp-header__inner{
   max-width:1000px; margin:0 auto;
   padding:26px 24px;
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:center;
   gap:20px; flex-wrap:wrap;
 }
 .comp-header__brand{ display:flex; align-items:center; gap:16px; }
