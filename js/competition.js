@@ -342,7 +342,7 @@ function buildBracket() {
     return side ? m[side] : null;
   };
 
-  const looserName = (matchId) => {
+  const loserName = (matchId) => {
     const m = matches[matchId];
     if (!m || !m.ready || m.status !== "played") return null;
     const side = knockoutLooser(matchId);
@@ -353,7 +353,7 @@ function buildBracket() {
     { home: "برنده یک‌چهارم ۱", away: "برنده یک‌چهارم ۲" });
   matches.sf2 = resolveMatch("sf2", () => winnerName("qf3"), () => winnerName("qf4"),
     { home: "برنده یک‌چهارم ۳", away: "برنده یک‌چهارم ۴" });
-  matches.p3d = resolveMatch("final", () => looserName("sf1"), () => looserName("sf2"),
+  matches.p3d = resolveMatch("final", () => loserName("sf1"), () => loserName("sf2"),
     { home: "بازنده نیمه‌نهایی ۱", away: "بازنده نیمه‌نهایی ۲" });
   matches.final = resolveMatch("final", () => winnerName("sf1"), () => winnerName("sf2"),
     { home: "برنده نیمه‌نهایی ۱", away: "برنده نیمه‌نهایی ۲" });
