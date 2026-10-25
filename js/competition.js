@@ -441,7 +441,7 @@ function renderBracket() {
         </div>
       </div>
       <div class="bracket-round bracket-round--final">
-        <div class="bracket-round__matches">
+        <div class="bracket-third">
           <p class="bracket-round__label">فینال</p>
           ${renderBracketMatch(matches.final)}
         </div>
