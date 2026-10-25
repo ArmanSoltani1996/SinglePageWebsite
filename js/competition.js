@@ -441,12 +441,12 @@ function renderBracket() {
         </div>
       </div>
       <div class="bracket-round bracket-round--final">
+        <p class="bracket-round__label">فینال</p>
         <div class="bracket-round__matches">
-          <p class="bracket-round__label">فینال</p>
           ${renderBracketMatch(matches.final)}
         </div>
+        <p class="bracket-round__label">رده‌بندی (مقام سوم)</p>
         <div class="bracket-round__matches">
-          <p class="bracket-round__label">رده‌بندی (مقام سوم)</p>
           ${renderBracketMatch(matches.p3d)}
         </div>
       </div>
