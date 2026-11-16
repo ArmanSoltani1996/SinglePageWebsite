@@ -656,3 +656,15 @@ main{ margin-left:var(--nav-w); }
   color:var(--text-dim);
 }
 
+
+/* Scroll-driven deep-space environment. Foreground remains interactive. */
+.space-journey{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;background:#050810;display:block}
+body{background:#050810}
+main,.site-footer{position:relative;z-index:1}
+main{pointer-events:none}
+main a,main button,main input,main textarea,main select,main [tabindex]{pointer-events:auto}
+.section,.hero{background:transparent}
+.section__inner,.hero__inner{position:relative}
+.hero__grid{opacity:.14}
+.site-footer{background:rgba(5,8,16,.7)}
+@media(prefers-reduced-motion:reduce){.space-journey{opacity:.75}}
