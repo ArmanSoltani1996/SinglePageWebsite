@@ -363,6 +363,13 @@ main{ margin-left:var(--nav-w); }
   margin:0 0 4px;
   padding-left:20px;
 }
+/* Ensure the Persian hero title uses Vazirmatn, not the Latin display font. */
+.hero__name.i18n-fa{
+  font-family:var(--font-fa);
+  font-weight:700;
+  letter-spacing:normal;
+  line-height:1.2;
+}
 .hero__name-fa{
   position:relative; z-index:2;
   font-family:var(--font-body);
