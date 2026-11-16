@@ -668,3 +668,7 @@ main a,main button,main input,main textarea,main select,main [tabindex]{pointer-
 .hero__grid{opacity:.14}
 .site-footer{background:rgba(5,8,16,.7)}
 @media(prefers-reduced-motion:reduce){.space-journey{opacity:.75}}
+
+/* Search-friendly visible professional summary; keeps existing hero design. */
+.hero__expertise{font-family:var(--font-body);font-size:clamp(.83rem,1.5vw,1rem);line-height:1.8;color:var(--text-muted);margin:0 0 16px;padding-left:20px;max-width:720px}
+html.lang-fa .hero__expertise{font-family:var(--font-fa);letter-spacing:normal}
